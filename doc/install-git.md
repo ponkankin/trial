@@ -2,6 +2,12 @@
 
 ## 1.1. インストーラの実行
 
+Windows PowerShell を管理者権限を開始して、以下のコマンドを実行する。
+
+```powershell
+Start-Process "hoge.exe"
+```
+
 「Git 2.24.1.2 Setup」ウインドウの「Information」が表示されるので、「Next >」ボタンをクリックする。
 
 ![install-git_20191222_081801](img/install-git_20191222_081801.png)

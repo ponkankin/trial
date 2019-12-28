@@ -1,6 +1,22 @@
-# 1. Visual Studio Code
+# 1. 目次
 
-## 1.1. ソフトウェアのインストール
+<!-- TOC -->
+
+- [1. 目次](#1-%e7%9b%ae%e6%ac%a1)
+- [2. ソフトウェアのインストール](#2-%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab)
+  - [2.1. Visual Studio Code](#21-visual-studio-code)
+  - [2.2. ユーザー設定（settings.json）](#22-%e3%83%a6%e3%83%bc%e3%82%b6%e3%83%bc%e8%a8%ad%e5%ae%9asettingsjson)
+  - [2.3. 拡張機能](#23-%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd)
+- [3. 小伝馬町](#3-%e5%b0%8f%e4%bc%9d%e9%a6%ac%e7%94%ba)
+  - [3.1. キーボードショートカット コマンド markdown.extension.togglePreviewToSide を削除](#31-%e3%82%ad%e3%83%bc%e3%83%9c%e3%83%bc%e3%83%89%e3%82%b7%e3%83%a7%e3%83%bc%e3%83%88%e3%82%ab%e3%83%83%e3%83%88-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89-markdownextensiontogglepreviewtoside-%e3%82%92%e5%89%8a%e9%99%a4)
+  - [3.2. html 出力時にサイドバー TOC を有効化](#32-html-%e5%87%ba%e5%8a%9b%e6%99%82%e3%81%ab%e3%82%b5%e3%82%a4%e3%83%89%e3%83%90%e3%83%bc-toc-%e3%82%92%e6%9c%89%e5%8a%b9%e5%8c%96)
+  - [3.3. Markdown TOC で日本語がダメぽ問題](#33-markdown-toc-%e3%81%a7%e6%97%a5%e6%9c%ac%e8%aa%9e%e3%81%8c%e3%83%80%e3%83%a1%e3%81%bd%e5%95%8f%e9%a1%8c)
+
+<!-- /TOC -->
+
+# 2. ソフトウェアのインストール
+
+## 2.1. Visual Studio Code
 
 「Microsoft Visual Studio Code セットアップ」の「使用許諾契約書の同意」が表示されるので、「同意する(A)」のチェックをオンにして「次(N) >」ボタンをクリックする。
 
@@ -42,7 +58,7 @@
 
 ![install-vscode_20191217_060716](img/install-vscode_20191217_060716.png)
 
-## 1.2. ユーザー設定（settings.json）
+## 2.2. ユーザー設定（settings.json）
 
 ※2019/12/17 時点
 
@@ -127,7 +143,7 @@
 }
 ```
 
-## 1.3. 拡張機能
+## 2.3. 拡張機能
 
 ※2019/12/17 時点
 
@@ -143,3 +159,49 @@
 |  8   | Paste Image                                   | 1.0.4      |
 |  9   | PlantUML                                      | 2.13.5     |
 |  10  | Prettier - Code formatter                     | 3.14.0     |
+
+# 3. 小伝馬町
+
+## 3.1. キーボードショートカット コマンド markdown.extension.togglePreviewToSide を削除
+
+Markdown All in One はプレビュー表示のショートカットをオーバーライドします。
+
+これは、`ctrl+k v` でプレビュー表示のトグル（開く,閉じるの切り替え）を行うためですが、Markdown Preview Enhanced（MPE）と競合するため無効にします。
+
+ちなみに、有効状態だと MPE のプレビューではなく、デフォルトのプレビューが表示されます。
+
+1. VS Code のメインメニューから、ファイル ＞ 基本設定 ＞ キーボードショートカットを開きます。
+1. `ctrl+k v` で検索し、コマンド `markdown.extension.togglePreviewToSide` を右クリックしキーバインドを削除します。
+
+## 3.2. html 出力時にサイドバー TOC を有効化
+
+以前はデフォルトで有効でしたが、セキュリティの関係上デフォルトで無効になっています（ver.0.3.5 以降）。
+
+有効にするには、ユーザー設定で`markdown-preview-enhanced.enableScriptExecution`を`true`にします。
+
+有効にすると、html 出力時にサイドバーメニュー（目次）が生成されます。
+
+ちなみにメニューボタンが左下に表示されるのですが、好みでないので左上にカスタマイズしています。
+
+1. ctrl+shift+p を押し、 Markdown Preview Enhanced: Customize Css を開きます
+1. 以下を最終行の後に追加
+
+```less
+// サイドバーTOCを左上にする
+.md-sidebar-toc.md-sidebar-toc {
+  padding-top: 40px;
+}
+
+#sidebar-toc-btn {
+  bottom: unset;
+  top: 8px;
+}
+```
+
+## 3.3. Markdown TOC で日本語がダメぽ問題
+
+結論、Auto Markdown TOC を使おう。
+
+[Atom の markdown-toc でタイトルが日本語の場合に動かない場合の対処 - 山ｐの楽しいお勉強生活](http://yamap55.hatenablog.com/entry/2018/04/21/004258)
+
+[GitHub Tips: Markdown に対して目次を作る方法 · sakura-editor/sakura Wiki · GitHub](https://github.com/sakura-editor/sakura/wiki/GitHub-Tips:-Markdown-%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BD%9C%E3%82%8B%E6%96%B9%E6%B3%95)
