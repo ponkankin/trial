@@ -1,22 +1,23 @@
-# 1. 目次
+<h1>目次</h1>
 
-<!-- TOC -->
+<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
-- [1. 目次](#1-%e7%9b%ae%e6%ac%a1)
-- [2. ソフトウェアのインストール](#2-%e3%82%bd%e3%83%95%e3%83%88%e3%82%a6%e3%82%a7%e3%82%a2%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab)
-  - [2.1. Visual Studio Code](#21-visual-studio-code)
-  - [2.2. ユーザー設定（settings.json）](#22-%e3%83%a6%e3%83%bc%e3%82%b6%e3%83%bc%e8%a8%ad%e5%ae%9asettingsjson)
-  - [2.3. 拡張機能](#23-%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd)
-- [3. 小伝馬町](#3-%e5%b0%8f%e4%bc%9d%e9%a6%ac%e7%94%ba)
-  - [3.1. キーボードショートカット コマンド markdown.extension.togglePreviewToSide を削除](#31-%e3%82%ad%e3%83%bc%e3%83%9c%e3%83%bc%e3%83%89%e3%82%b7%e3%83%a7%e3%83%bc%e3%83%88%e3%82%ab%e3%83%83%e3%83%88-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89-markdownextensiontogglepreviewtoside-%e3%82%92%e5%89%8a%e9%99%a4)
-  - [3.2. html 出力時にサイドバー TOC を有効化](#32-html-%e5%87%ba%e5%8a%9b%e6%99%82%e3%81%ab%e3%82%b5%e3%82%a4%e3%83%89%e3%83%90%e3%83%bc-toc-%e3%82%92%e6%9c%89%e5%8a%b9%e5%8c%96)
-  - [3.3. Markdown TOC で日本語がダメぽ問題](#33-markdown-toc-%e3%81%a7%e6%97%a5%e6%9c%ac%e8%aa%9e%e3%81%8c%e3%83%80%e3%83%a1%e3%81%bd%e5%95%8f%e9%a1%8c)
+<!-- code_chunk_output -->
 
-<!-- /TOC -->
+- [1. ソフトウェアのインストール](#1-ソフトウェアのインストール)
+  - [1.1. Visual Studio Code](#11-visual-studio-code)
+  - [1.2. ユーザー設定（settings.json）](#12-ユーザー設定settingsjson)
+  - [1.3. 拡張機能](#13-拡張機能)
+- [2. 小伝馬町](#2-小伝馬町)
+  - [2.1. キーボードショートカット コマンド markdown.extension.togglePreviewToSide を削除](#21-キーボードショートカット-コマンド-markdownextensiontogglepreviewtoside-を削除)
+  - [2.2. html 出力時にサイドバー TOC を有効化](#22-html-出力時にサイドバー-toc-を有効化)
+  - [2.3. Markdown TOC で日本語がダメぽ問題](#23-markdown-toc-で日本語がダメぽ問題)
 
-# 2. ソフトウェアのインストール
+<!-- /code_chunk_output -->
 
-## 2.1. Visual Studio Code
+# 1. ソフトウェアのインストール
+
+## 1.1. Visual Studio Code
 
 「Microsoft Visual Studio Code セットアップ」の「使用許諾契約書の同意」が表示されるので、「同意する(A)」のチェックをオンにして「次(N) >」ボタンをクリックする。
 
@@ -58,7 +59,7 @@
 
 ![install-vscode_20191217_060716](img/install-vscode_20191217_060716.png)
 
-## 2.2. ユーザー設定（settings.json）
+## 1.2. ユーザー設定（settings.json）
 
 ※2019/12/17 時点
 
@@ -143,7 +144,7 @@
 }
 ```
 
-## 2.3. 拡張機能
+## 1.3. 拡張機能
 
 ※2019/12/17 時点
 
@@ -160,9 +161,9 @@
 |  9   | PlantUML                                      | 2.13.5     |
 |  10  | Prettier - Code formatter                     | 3.14.0     |
 
-# 3. 小伝馬町
+# 2. 小伝馬町
 
-## 3.1. キーボードショートカット コマンド markdown.extension.togglePreviewToSide を削除
+## 2.1. キーボードショートカット コマンド markdown.extension.togglePreviewToSide を削除
 
 Markdown All in One はプレビュー表示のショートカットをオーバーライドします。
 
@@ -173,7 +174,7 @@ Markdown All in One はプレビュー表示のショートカットをオーバ
 1. VS Code のメインメニューから、ファイル ＞ 基本設定 ＞ キーボードショートカットを開きます。
 1. `ctrl+k v` で検索し、コマンド `markdown.extension.togglePreviewToSide` を右クリックしキーバインドを削除します。
 
-## 3.2. html 出力時にサイドバー TOC を有効化
+## 2.2. html 出力時にサイドバー TOC を有効化
 
 以前はデフォルトで有効でしたが、セキュリティの関係上デフォルトで無効になっています（ver.0.3.5 以降）。
 
@@ -198,7 +199,7 @@ Markdown All in One はプレビュー表示のショートカットをオーバ
 }
 ```
 
-## 3.3. Markdown TOC で日本語がダメぽ問題
+## 2.3. Markdown TOC で日本語がダメぽ問題
 
 結論、Auto Markdown TOC を使おう。
 
