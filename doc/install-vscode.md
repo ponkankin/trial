@@ -1,23 +1,24 @@
-<h1>目次</h1>
+<h1>インストール手順（Visual Studio Code）</h1>
 
 <!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
 
 <!-- code_chunk_output -->
 
 - [1. ソフトウェアのインストール](#1-ソフトウェアのインストール)
-  - [1.1. Visual Studio Code](#11-visual-studio-code)
+  - [1.1. インストーラの実行](#11-インストーラの実行)
   - [1.2. ユーザー設定（settings.json）](#12-ユーザー設定settingsjson)
   - [1.3. 拡張機能](#13-拡張機能)
 - [2. 小伝馬町](#2-小伝馬町)
   - [2.1. キーボードショートカット コマンド markdown.extension.togglePreviewToSide を削除](#21-キーボードショートカット-コマンド-markdownextensiontogglepreviewtoside-を削除)
   - [2.2. html 出力時にサイドバー TOC を有効化](#22-html-出力時にサイドバー-toc-を有効化)
   - [2.3. Markdown TOC で日本語がダメぽ問題](#23-markdown-toc-で日本語がダメぽ問題)
+  - [2.4. autoRenumber](#24-autorenumber)
 
 <!-- /code_chunk_output -->
 
 # 1. ソフトウェアのインストール
 
-## 1.1. Visual Studio Code
+## 1.1. インストーラの実行
 
 「Microsoft Visual Studio Code セットアップ」の「使用許諾契約書の同意」が表示されるので、「同意する(A)」のチェックをオンにして「次(N) >」ボタンをクリックする。
 
@@ -61,12 +62,13 @@
 
 ## 1.2. ユーザー設定（settings.json）
 
-※2019/12/17 時点
+※2019/12/30 時点
 
 ```json
 {
-  // Editor
+  // diffEditor
   "diffEditor.renderSideBySide": false,
+  // Editor
   "editor.colorDecorators": false,
   "editor.detectIndentation": false,
   "editor.fontFamily": "MeiryoKe_Console, Consolas, 'Courier New', monospace",
@@ -79,8 +81,10 @@
   "editor.minimap.showSlider": "always",
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.renderControlCharacters": true,
+  "editor.renderIndentGuides": true,
   "editor.renderLineHighlight": "all",
   "editor.renderWhitespace": "all",
+  "editor.rulers": [200],
   "editor.snippetSuggestions": "top",
   "editor.tabSize": 2,
   "editor.wordWrap": "on",
@@ -107,33 +111,52 @@
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
   "[markdown]": {
+    "editor.quickSuggestions": true,
     "files.trimTrailingWhitespace": false
   },
   // Git
+  "git.autofetch": true,
   "git.path": "C:\\opt\\git\\cmd\\git.exe",
   // HTML
   "html.format.contentUnformatted": "pre, code, textarea, title, h1, h2, h3, h4, h5, h6, p",
   "html.format.extraLiners": "",
   "html.format.unformatted": null,
   "html.format.wrapLineLength": 0,
-  "search.exclude": {
-    "**/tmp": true
-  },
   // Markdown
   "markdown.extension.orderedList.autoRenumber": false,
   "markdown.extension.orderedList.marker": "one",
   "markdown.extension.syntax.decorations": false,
   "markdown.extension.tableFormatter.enabled": false,
   "markdown.preview.breaks": true,
+  "markdown.preview.fontFamily": "MeiryoKe_Console, Consolas, 'Courier New', monospace",
+  "markdown.preview.fontSize": 14,
   // Markdown Preview Enhanced
   "markdown-preview-enhanced.enableExtendedTableSyntax": true,
   "markdown-preview-enhanced.enableScriptExecution": true,
-  "markdown-preview-enhanced.singlePreview": true,
   "markdown-preview-enhanced.previewTheme": "github-light.css",
+  "markdown-preview-enhanced.singlePreview": true,
+  // markdown-index
+  "markdownIndex.indexBase": "#",
+  // markdownlint
+  "markdownlint.config": {
+    "default": true,
+    "MD013": {
+      "line_length": 400
+    },
+    "MD025": false,
+    "MD033": {
+      "allowed_elements": ["h1", "span"]
+    },
+    "MD041": false
+  },
   // Paste Images
   "pasteImage.defaultName": "${currentFileNameWithoutExt}_YMMDD_HHmmss",
   "pasteImage.insertPattern": "![${imageFileNameWithoutExt}](${imageFilePath})",
   "pasteImage.path": "${currentFileDir}\\img",
+  // Search
+  "search.exclude": {
+    "**/tmp": true
+  },
   // Window
   "window.openFoldersInNewWindow": "on",
   "window.title": "${activeEditorMedium}${separator}${rootName}",
@@ -146,20 +169,19 @@
 
 ## 1.3. 拡張機能
 
-※2019/12/17 時点
+※2019/12/30 時点
 
 | 項番 | 名前                                          | バージョン |
-| :--: | :-------------------------------------------- | :--------- |
+| :--: | --------------------------------------------- | ---------- |
 |  1   | Japanese Language Pack for Visual Studio Code | 1.41.2     |
 |  2   | Markdown All in One                           | 2.6.1      |
 |  3   | Markdown Checkbox                             | 1.6.0      |
 |  4   | Markdown Preview Enhanced                     | 0.5.0      |
-|  5   | Markdown TOC                                  | 1.5.6      |
-|  6   | markdown-index                                | 0.0.9      |
-|  7   | markdownlint                                  | 0.32.0     |
-|  8   | Paste Image                                   | 1.0.4      |
-|  9   | PlantUML                                      | 2.13.5     |
-|  10  | Prettier - Code formatter                     | 3.14.0     |
+|  5   | markdown-index                                | 0.0.9      |
+|  6   | markdownlint                                  | 0.32.0     |
+|  7   | Paste Image                                   | 1.0.4      |
+|  8   | PlantUML                                      | 2.13.5     |
+|  9   | Prettier - Code formatter                     | 3.14.0     |
 
 # 2. 小伝馬町
 
@@ -206,3 +228,8 @@ Markdown All in One はプレビュー表示のショートカットをオーバ
 [Atom の markdown-toc でタイトルが日本語の場合に動かない場合の対処 - 山ｐの楽しいお勉強生活](http://yamap55.hatenablog.com/entry/2018/04/21/004258)
 
 [GitHub Tips: Markdown に対して目次を作る方法 · sakura-editor/sakura Wiki · GitHub](https://github.com/sakura-editor/sakura/wiki/GitHub-Tips:-Markdown-%E3%81%AB%E5%AF%BE%E3%81%97%E3%81%A6%E7%9B%AE%E6%AC%A1%E3%82%92%E4%BD%9C%E3%82%8B%E6%96%B9%E6%B3%95)
+
+_2019/12/29 追記_
+Markdown Preview Enhanced で TOC が挿入できる（かつ、保存時に自動更新できる）ため、Markdown TOC も Auto Markdown TOC もいらん説。というか、いらん。
+
+## 2.4. autoRenumber
